@@ -22,4 +22,5 @@ senseglove_noetic.code-workspace
 
 .idea/*
 .catkin_tools/*
+.devcontainer/
 .vscode/
