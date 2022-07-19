@@ -1,4 +1,4 @@
-# Senseglove ros_workspace
+# Senseglove noetic ros_workspace
 A workspace for the integration of the SenseGlove into _ROS Melodic_.
 This workspace makes use of ros_control for automatically initiating publisher and subscriber nodes for the state of the senseglove.
 
