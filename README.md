@@ -1,16 +1,11 @@
 # Senseglove noetic ros_workspace
-A workspace for the integration of the SenseGlove into _ROS Melodic_.
+A forked workspace (https://github.com/Adjuvo/senseglove_noetic) for the integration of the SenseGlove into _ROS Noetic_.
 This workspace makes use of ros_control for automatically initiating publisher and subscriber nodes for the state of the senseglove.
-
-Florent Audonnet has done some work on support for ROS2 Galactic. In case you are interested, have a look at https://github.com/09ubberboy90/senseglove_ros_ws/tree/ros2
-
-If the current build (after the visualization branch merge) breaks your current work environment, please refer to [this older version]: https://github.com/Adjuvo/senseglove_ros_ws/commit/f0126b165fc865e1ce0be19db2f68bf725c221da of this workspace. 
-
 
 ## 1. For ROS beginners: ##
 If you are totally unfamiliar with ROS we advise you to take a look at the ROS-wiki for a quick startup guide.
 We especially recommend the following tutorials:
-* http://wiki.ros.org/melodic/Installation/Ubuntu
+* http://wiki.ros.org/noetic/Installation/Ubuntu
 * http://wiki.ros.org/ROS/StartGuide
 * http://wiki.ros.org/ROS/Tutorials
     * http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment
@@ -21,24 +16,24 @@ In our experience, simply googling for an error or issue you have can do the tri
 vast amount of documentation, though it can be tedious to sort through its information.
 
 ### Setting up the workspace for the senseglove: ###
-1. Make sure you are on a Ubuntu 18.04 system (not necessary, but all code has been checked with docker images running in ubuntu).
-2. Download ros-melodic as described in the ros-wiki.
+1. Make sure you are on a Ubuntu 20.04 system (not necessary, but all code has been checked with docker images running in ubuntu).
+2. Download ros-noetic as described in the ros-wiki.
 3. clone our workspace by either using `git clone https://github.com/Adjuvo/senseglove_ros_ws.git` or through the webbrowser here on the Github website.
 4. install the following dependencies:
-    1. `sudo apt-get install ros-melodic-ros-control`
-    2. `sudo apt-get install ros-melodic-joint-trajectory-controller`
+    1. `sudo apt-get install ros-noetic-ros-control`
+    2. `sudo apt-get install ros-noetic-joint-trajectory-controller`
 5. Run: `sudo apt-get update`
 6. Run: `rosdep update`
 7. Run: `sudo apt-get upgrade`
 8. navigate, in the terminal, to the workspace folder
-9. source your workspace: `source /opt/ros/melodic/setup.bash`
+9. source your workspace: `source /opt/ros/noetic/setup.bash`
 10. Build your workspace: `catkin build`
     1. or if you prefer a different build tool use: `catkin_make`
     2. or use: `colcon build`
 11. after building, you can source the workspace itself by using `source devel/setup.bash`
 
 ## 2. General Usage: ##
-This repository is meant to present a solid foundation for using the senseglove in ROS Melodic. As such it provides no
+This repository is meant to present a solid foundation for using the senseglove in ROS noetic. As such it provides no
 concrete example projects. It does however provide the user with a few launch files, hardware.launch and senseglove_demo.launch
 which initiate the sensegloves.
 The senseglove_hardware_interface nodes which are called by these launch files do nothing more than using the senseglove API
@@ -70,7 +65,7 @@ Moreover, due to our integration into ros-control we require the user to know wh
 As such, the user has to define which glove is connected to the system.
 
 1. find out if you are dealing with a left- or right-handed senseglove
-2. remove the non-existing glove from the senseglove_hardware_demo.launch file, such that only your left/right-handed glove remains.
+2. remove the non-existing glove from the senseglove_hardware_demo.launch file, such that only your left/right-handed glove remains. (use the lh & rh demo files as reference)
 3. save the launch file
 4. build you workspace
 5. source your workspace
@@ -78,6 +73,7 @@ As such, the user has to define which glove is connected to the system.
 
 ### Remarks for using the finger distance node: ###
 The finger distance package is meant to publish the distance between the fingertips through a rosnode as a means to control robotic grippers. This package also provides a calibration class that provides a service server. The service is easily called from the rqt_service_caller plugin.Instructions for the calibration are printed on your terminal.
+
 ## 3. To do: ##
 This is a small to do list for the upcoming features in this repository these will be added as issues as well.
 * Custom Exceptions for easy debugging
