@@ -1,0 +1,10 @@
+<launch>
+     <arg name="right" default="false"/>
+
+    <include file="$(find senseglove_hardware_interface)/launch/hardware.launch" if="$(eval right==true)">
+        <arg name="robot" value="dk1_right"/>
+        <arg name="nr_of_glove" value="0"/>
+        <arg name="is_right" value="true"/>
+    </include>
+    
+</launch>
